@@ -1,3 +1,5 @@
+package ir.codefather.utils;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 

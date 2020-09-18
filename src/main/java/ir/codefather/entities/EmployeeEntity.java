@@ -1,11 +1,9 @@
+package ir.codefather.entities;
+
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity(name = "employees")
-public class EmployeeEntity implements Serializable {
-
-    private static final long serialVersionUID = -1798070786993154676L;
-
+public class EmployeeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
@@ -19,6 +17,9 @@ public class EmployeeEntity implements Serializable {
 
     @Column(name = "LAST_NAME", unique = false, nullable = false, length = 100)
     private String lastName;
+
+    @OneToOne
+    private AccountEntity account;
 
     public Integer getEmployeeId() {
         return employeeId;
@@ -50,5 +51,13 @@ public class EmployeeEntity implements Serializable {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public AccountEntity getAccount() {
+        return account;
+    }
+
+    public void setAccount(AccountEntity account) {
+        this.account = account;
     }
 }
