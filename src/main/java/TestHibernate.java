@@ -4,6 +4,9 @@ import ir.codefather.utils.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TestHibernate {
     public static void main(String[] args) {
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -17,7 +20,10 @@ public class TestHibernate {
 
         AccountEntity account = new AccountEntity();
         account.setNumber("Dummy account");
-        emp.setAccount(account);
+
+        List<AccountEntity> accounts = new ArrayList<>();
+        accounts.add(account);
+        emp.setAccounts(accounts);
 
         session.save(emp);
         session.save(account);

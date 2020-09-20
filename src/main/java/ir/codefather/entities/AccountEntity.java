@@ -12,7 +12,7 @@ public class AccountEntity{
     @Column(length = 100)
     private String number;
 
-    @OneToOne(mappedBy = "account")
+    @ManyToOne
     private EmployeeEntity employee;
 
     public Integer getId() {
